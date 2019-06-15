@@ -6,7 +6,8 @@
 ## 執行方式
 - 需要套件：python3, django
 - 安裝完所需套件後：
-``` python3 manage.py runserver
-
+``` 
+  python3 manage.py runserver
+```
 ---
 ## Final.pptx為期末的簡報
