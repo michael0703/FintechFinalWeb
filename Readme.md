@@ -1,12 +1,10 @@
-# Introduce myself
+# Introduce 
 
-嗨大家好，我是資工系大三廖威仲，這是我的DjangoClass的作業repo
-
+這是Fintech Final的demo
+此Repo為客服紀錄網頁的原始碼
 ---
-## Week1
-
-以下是我的heroku網站連結：https://weihelloworldtest.herokuapp.com/
-
-**新增了新的view** 
-
+## 執行方式
+- 需要套件：python3, django
+- 安裝完所需套件後：```python3 manage.py runserver
 ---
+## Final.pptx為期末的簡報
