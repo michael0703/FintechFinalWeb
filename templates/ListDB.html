@@ -1,0 +1,31 @@
+{% extends './base.html' %}
+{% block title %}<title>所有客服紀錄</title>{% endblock %}
+{% block body %}
+<div class="container">
+	<h2>所有的客服紀錄</h2>	
+</div>
+<div>
+	<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>客戶ID</th>
+        <th>CallOut日期</th>
+        <th>有興趣事項</th>
+        <th>其餘特殊備註</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in clientRecord %}
+      <tr>
+      	<td>{{record.clientID}}</td>
+      	<td>{{record.calloutDate}}</td>
+      	<td>{{record.Uniformfield}}</td>
+      	<td>{{record.Nonuniformfield}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

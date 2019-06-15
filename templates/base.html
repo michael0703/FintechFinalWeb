@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{%block title%}<title></title>{% endblock %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://www.amcharts.com/lib/4/core.js"></script>
+	<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+	<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+	<script src="https://www.amcharts.com/lib/4/plugins/wordCloud.js"></script>
+</head>
+
+<body>	
+{% block navbar %}
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/">MainPage</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li><a href="/ListDB">ListDB</a></li>	
+	      <li><a href="/Query">Query ClientID</a></li>
+	      <li><a href="/QueryNonuniform">Query特殊備註欄位</a></li>
+	      <li><a href="/Analyze">Analyze</a></li>
+	    </ul>
+	  </div>
+	</nav>
+{% endblock %}
+{% block body %}
+{% endblock %}
+</body>
+
+</html>

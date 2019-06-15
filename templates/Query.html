@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% block title %}<title>查詢特定客戶紀錄</title>{% endblock %}
+{% block body %}
+
+	<form action="/Query" method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+  			<label for="usr">輸入客戶ID</label>
+  			<input id="datest" type="text" id="usr" name="clientID">
+		</div>
+		<input type="submit" name="botton" class="btn btn-primary">
+
+	</form>
+	<div>
+	<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>客戶ID</th>
+        <th>CallOut日期</th>
+        <th>有興趣事項</th>
+        <th>其餘特殊備註</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in clientRecord %}
+      <tr>
+      	<td>{{record.clientID}}</td>
+      	<td>{{record.calloutDate}}</td>
+      	<td>{{record.Uniformfield}}</td>
+      	<td>{{record.Nonuniformfield}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

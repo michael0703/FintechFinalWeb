@@ -1,0 +1,90 @@
+{% extends './base.html' %}
+{% block title %}<title>主頁面</title>{% endblock %}
+{% block body %}
+<div class="container">
+	<h3>這邊是給客服人員用標準化的方式記錄下客服紀錄，盡量追求簡單、有效率的紀錄方式。</h3>
+	<p>和原先的紀錄欄位相同，只是稍微一點點不同，如以下說明</p>
+	<dl>
+	    <dt>客戶ID</dt>
+	    <dd>	- 標明是打給哪位客戶</dd>
+	    <dt>客服時間</dt>
+	    <dd>	- 標明是什麼時候打這通客服電話</dd>
+	    <dt>有興趣項目</dt>
+	    <dd>	- 利用按鈕、以及下拉式選單的方式，不僅可以讓客服人員較簡單紀錄，也可以整合成標準的紀錄表單</dd>
+	    <dd>	- 仍舊保有文字敘述欄位，讓客服人員可以將特殊狀況記錄下來。</dd>
+  	</dl>	
+</div>
+<div class="container">
+<h3>客服紀錄</h3>
+	<h4 class="text-danger">{{errmsg}}</h4>
+	<form action="/Process/" method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+  			<label for="usr">客戶ID</label>
+  			<input type="text" class="form-control" id="usr" name="clientid" style="width: 40%;">
+		</div>
+
+		<div class="form-group">
+  			<label for="usr">客服時間</label>
+  			<input id="datest" type="date" name="calloutdate"><br>
+		</div>
+
+		<!-- <h5>有興趣項目</h5> -->
+		<div>
+		<label>有興趣項目</label>
+		<div>
+			<button type="button" class="btn btn-default" onclick="add_node()" id='addbtn'>新增有興趣欄位</button>
+			<button type="button" class="btn btn-default" onclick="del_node()" >刪除有興趣欄位</button>
+		</div>
+				
+		<input type='hidden' id='hidden' name="countvar" value=1><br>
+		<select id=selectbar name=1 id=1 class="custom-select" style="width: 40%;">
+              <option value="none">選擇產品</option>
+              {% for product in interestedProduct %}
+              <option value={{forloop.counter}}>{{product}}</option>
+              {% endfor %}
+    	</select>
+    	</div>
+    	<br>
+    	<div class="form-group">
+  			<label for="usr">特殊客服敘述</label>
+  			<textarea class="form-control" rows="10" id="comment" name="NonUniformArea"></textarea>
+		</div>
+
+		<input type="submit" name="botton" class="btn btn-primary">
+    	
+	</form>
+</div>
+<script type="text/javascript">
+  		var count=1;
+		function add_node()
+		{
+			document.getElementById("hidden").value = ++count;	
+			var add_node = document.getElementById('selectbar');
+			var nodeFather = add_node.parentNode;
+			var node_clone = add_node.cloneNode();
+			content = add_node.innerHTML;
+			// node_clone.removeAttribute('id');
+			node_clone.setAttribute("id", document.getElementById("hidden").value)
+			node_clone.innerHTML = content;
+			node_clone.id=count;
+			node_clone.name=count;
+			nodeFather.appendChild(node_clone);
+
+		}
+		function del_node()
+		{
+			var node = document.getElementById(document.getElementById("hidden").value);
+			node.parentNode.removeChild(node);
+			document.getElementById('hidden').value = --count;
+
+		}
+</script>
+
+
+
+
+
+
+
+{% endblock %}
